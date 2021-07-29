@@ -29,7 +29,7 @@ export default {
       //   };
       axios
         .get(
-          "http://192.168.1.97:8092/managementSystem/wks/getNumberOfPeople?startDateTime='2021-05-11 8:00:00'&endDateTime='2021-05-11 17:00:00'&shopNum='0001'"
+          "http://192.168.1.97:8092/managementSystem/wks/getNumberOfPeople?startDateTime='2021-05-11 8:30:00'&endDateTime='2021-05-11 17:00:00'&shopNum='0001'"
         )
         .then((response) => {
           console.log(response, "ksdf");
@@ -38,6 +38,7 @@ export default {
     //     let res = await HomeDomain.getOnIcePeople(obj)
     //     console.log(res,'skjdc')
     // }
+    
   },
 };
 </script>
