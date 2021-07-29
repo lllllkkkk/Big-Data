@@ -13,6 +13,7 @@
     "axios-vue-http": "0.0.5",
     "core-js": "^3.6.5",
     "echarts": "^5.1.2",
+    "element-ui": "^2.15.3",
     "vue": "^2.6.11",
     "vue-router": "^3.5.2"
   },
@@ -45,5 +46,18 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lllllkkkk/Big-Data.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lllllkkkk/Big-Data/issues"
+  },
+  "homepage": "https://github.com/lllllkkkk/Big-Data#readme"
 }
