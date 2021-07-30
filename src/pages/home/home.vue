@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <DateChoose></DateChoose>
+    <LineChart></LineChart>
   </div>
 </template>
 
@@ -9,9 +10,11 @@
 import axios from "axios";
 
 import DateChoose from "../../components/date-choose.vue";
+import LineChart from '../../components/line-chart.vue'
 export default {
   components: {
     DateChoose,
+    LineChart
   },
   data() {
     return {};
