@@ -12,7 +12,7 @@ export default {
     return {
         time:0
     };
-  },
+  }, 
   mounted() {
     //   this.getmain2()
       
