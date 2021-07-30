@@ -1,15 +1,13 @@
 <template>
     <div>
-        这里是饼状图
+        这里是价目表
     </div>
 </template>
 
 <script>
 export default {
     data(){
-        return {
 
-        }
     },
     mounted(){
 
@@ -20,6 +18,6 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style scoped>
 
 </style>

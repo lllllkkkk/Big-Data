@@ -1,16 +1,17 @@
 <template>
-  <div id="main2" style="width: 400px; height: 300px;background:red"> {{time}} </div>
-  
+  <!-- <div id="main2" style="width: 400px; height: 300px;background:red"> {{time}} </div> -->
+  <div>
+    这里是折线图
+  </div>
 </template>
 
-<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 <script>
 
 
 export default {
   data() {
     return {
-        time:0
+        // time:0
     };
   }, 
   mounted() {
