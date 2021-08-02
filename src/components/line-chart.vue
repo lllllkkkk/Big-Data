@@ -2,22 +2,19 @@
   <!-- <div id="main2" style="width: 400px; height: 300px;background:red"> {{time}} </div> -->
   <div class="lineCharts">
     <span class="textSty"> 上冰人数 </span>
-    <img class="imgSty" src="../assets/image/arrow.png" alt="">
+    <img class="imgSty" src="../assets/image/arrow.png" alt="" />
   </div>
 </template>
 
 <script>
-
-
 export default {
   data() {
     return {
-        // time:0
+      // time:0
     };
-  }, 
+  },
   mounted() {
     //   this.getmain2()
-      
   },
   methods: {
     // getmain2() {
@@ -70,7 +67,6 @@ export default {
     //       },
     //     ],
     //   };
-
     //   setInterval(function () {
     //     option.series.map((item) => {
     //       item.data.shift();
@@ -84,24 +80,24 @@ export default {
 </script>
 
 <style scoped>
-.lineCharts{
+.lineCharts {
   margin-top: 30px;
   position: relative;
 }
-.textSty{
+.textSty {
   font-size: 24px;
   font-family: BigruixianBlackGBV1.0 Regular;
-  letter-spacing:5px;
-  background-image: linear-gradient(#74D1FF, #DAEEFF);
+  letter-spacing: 5px;
+  background-image: linear-gradient(#74d1ff, #daeeff);
   -webkit-background-clip: text;
   color: transparent;
   font-weight: 700;
 }
-.imgSty{
+.imgSty {
   width: 260px;
-    height: 16px;
-    position: absolute;
-    left: 120px;
-    top: 8px;
+  height: 16px;
+  position: absolute;
+  left: 120px;
+  top: 8px;
 }
 </style>

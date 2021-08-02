@@ -1,6 +1,6 @@
 <template>
     <div>
-        这里是饼状图
+        
     </div>
 </template>
 

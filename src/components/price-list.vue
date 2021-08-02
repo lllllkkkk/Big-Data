@@ -1,6 +1,6 @@
 <template>
     <div>
-        这里是价目表
+        <span class="price-list"> 价目表 </span>
     </div>
 </template>
 
