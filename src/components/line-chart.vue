@@ -1,7 +1,8 @@
 <template>
   <!-- <div id="main2" style="width: 400px; height: 300px;background:red"> {{time}} </div> -->
-  <div>
-    这里是折线图
+  <div class="lineCharts">
+    <span class="textSty"> 上冰人数 </span>
+    <img class="imgSty" src="../assets/image/arrow.png" alt="">
   </div>
 </template>
 
@@ -82,5 +83,25 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style scoped>
+.lineCharts{
+  margin-top: 30px;
+  position: relative;
+}
+.textSty{
+  font-size: 24px;
+  font-family: BigruixianBlackGBV1.0 Regular;
+  letter-spacing:5px;
+  background-image: linear-gradient(#74D1FF, #DAEEFF);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+.imgSty{
+  width: 260px;
+    height: 16px;
+    position: absolute;
+    left: 120px;
+    top: 8px;
+}
 </style>
