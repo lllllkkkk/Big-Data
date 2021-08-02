@@ -44,7 +44,7 @@ import BarCharts from "../../components/bar-chart.vue";
 import LineCharts from "../../components/line-chart.vue";
 import PieCharts from "../../components/pie-chart.vue";
 import PriceList from "../../components/price-list.vue";
-// import ShufflingFigure from "../../components/shuffling-figure.vue";
+import ShufflingFigure from "../../components/shuffling-figure.vue";
 import VenueLyoutCharts from "../../components/venue-lyout-charts.vue";
 export default {
   components: {
@@ -53,7 +53,7 @@ export default {
     LineCharts,
     PieCharts,
     PriceList,
-    // ShufflingFigure,
+    ShufflingFigure,
     VenueLyoutCharts,
   },
   data() {
@@ -134,6 +134,27 @@ export default {
   position: relative;
   box-sizing: border-box;
   position: relative;
+}
+.bar-and-pie::before {
+  content: "";
+  width: 0;
+  height: 22px;
+  position: absolute;
+  right: 7px;
+  top: -4px;
+  transform: rotate(135deg);
+  border: 1px solid rgba(76, 178, 248, 0.5);
+}
+.bar-and-pie::after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: -1px;
+  top: -2px;
+  border: 10px solid #050b1b;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
 }
 .right {
   display: flex;
@@ -233,5 +254,27 @@ export default {
   position: relative;
   box-sizing: border-box;
   position: relative;
+}
+
+.shuffling-figure::before {
+  content: "";
+  width: 0;
+  height: 22px;
+  position: absolute;
+  right: 7px;
+  top: -4px;
+  transform: rotate(135deg);
+  border: 1px solid rgba(76, 178, 248, 0.5);
+}
+.shuffling-figure::after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 436px;
+  top: -2px;
+  border: 9px solid #050b1b;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
 }
 </style>
