@@ -1,17 +1,18 @@
 <template>
   <div class="home">
-      <div class="left">
-        <div class="left-top">
-          <div class="time-and-people">
-            <DateChoose></DateChoose>
-            <LineCharts></LineCharts>
-          </div>
-          <!-- <div class="lyout-charts" style="border:solid 1px red;">
+    <div class="left">
+      <div class="left-top">
+        <div class="time-and-people">
+          <DateChoose></DateChoose>
+          <LineCharts></LineCharts>
+          <img class="img-light" src="../../assets/image/light.png" alt="" />
+        </div>
+        <!-- <div class="lyout-charts" style="border:solid 1px red;">
             <VenueLyoutCharts></VenueLyoutCharts>
           </div> -->
-        </div>
+      </div>
 
-        <!-- <div class="bar-and-pie">
+      <!-- <div class="bar-and-pie">
           <div class="bar-charts" style="width:460px;border:solid 1px red;">
             <BarCharts></BarCharts>
           </div>
@@ -19,8 +20,8 @@
             <PieCharts></PieCharts>
           </div>
         </div> -->
-      </div>
-      <!-- <div class="right">
+    </div>
+    <!-- <div class="right">
         <div style="width:450px;height:850px;border:solid 1px red;">
           <PriceList></PriceList>
         </div>
@@ -28,7 +29,7 @@
           <ShufflingFigure></ShufflingFigure>
         </div>
       </div> -->
-    </div>
+  </div>
 </template>
 
 <script>
@@ -86,15 +87,16 @@ export default {
   height: 100vh;
   display: flex;
   padding: 170px 20px 0 20px;
-  background-image: url('../../assets/image/bg.jpg') ;
-  background-repeat:no-repeat;
+  background-image: url("../../assets/image/bg.jpg");
+  background-repeat: no-repeat;
   color: #fff;
 }
 .left {
   width: 930px;
-  
 }
 .left-top {
+  /* opacity: 0.4; */
+
   display: flex;
 }
 .lyout-charts {
@@ -105,14 +107,47 @@ export default {
 .time-and-people {
   width: 450px;
   height: 420px;
+  padding: 10px;
+  border: solid 1px rgba(76, 178, 248, 0.4);
+  box-shadow: 0px 0px 15px rgba(76, 178, 248, 0.5) inset;
+  position: relative;
 }
 .bar-and-pie {
   height: 420px;
   display: flex;
   margin-top: 20px;
 }
-.right{
+.right {
   display: flex;
   margin-left: 20px;
+}
+.time-and-people {
+  position: relative;
+}
+.time-and-people::before {
+  content: "";
+  width: 0;
+  height: 22px;
+  position: absolute;
+  right: 7px;
+  top: -4px;
+  transform: rotate(135deg);
+  border: 1px solid rgba(76, 178, 248, 0.5);
+}
+.time-and-people::after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 453px;
+  top: -1px;
+  border: 9px solid #050b1b;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.img-light {
+  position: absolute;
+  top: -44px;
+  left: 170px;
 }
 </style>
