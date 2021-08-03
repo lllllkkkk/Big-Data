@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 import DateChoose from "../../components/date-choose.vue";
 import BarCharts from "../../components/bar-chart.vue";
@@ -70,13 +70,13 @@ export default {
       //     endDateTime: "2021-07-29 15:01:00",
       //     shopNum: "1001",
       //   };
-      axios
-        .get(
-          "http://192.168.1.97:8092/managementSystem/wks/getNumberOfPeople?startDateTime='2021-05-11 8:30:00'&endDateTime='2021-05-11 17:00:00'&shopNum='0001'"
-        )
-        .then((response) => {
-          console.log(response, "ksdf");
-        });
+            // axios
+            //   .get(
+            //     "http://192.168.1.97:8092/managementSystem/wks/getNumberOfPeople?startDateTime='2021-05-11 8:30:00'&endDateTime='2021-05-11 17:00:00'&shopNum='0001'"
+            //   )
+            //   .then((response) => {
+            //     // console.log(response, "ksdf");
+            //   });
     },
     //     let res = await HomeDomain.getOnIcePeople(obj)
     //     console.log(res,'skjdc')

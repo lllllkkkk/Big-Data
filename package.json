@@ -13,7 +13,9 @@
     "core-js": "^3.6.5",
     "element-ui": "^2.15.3",
     "moment": "^2.29.1",
+    "swiper": "^6.8.0",
     "vue": "^2.6.11",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-router": "^3.5.2"
   },
   "devDependencies": {

@@ -7,7 +7,8 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
+import PortData from '../assets/js/port-img-data.js'
 export default {
   data() {
       return {
@@ -18,17 +19,21 @@ export default {
       this.getPriceList()
   },
   methods: {
-    getPriceList() {
-      axios
-        .get(
-          "http://192.168.1.97:8092/managementSystem/changguan/getBigDataPics?type=3&pageNo=1&pageSize=10&shopNum=0001"
-        )
-        .then((response) => {
-          console.log(response, "hello");
-          this.imgUrl = 'https://www.147soft.cn:8092/images/' + response.data.data.list[0].imageUrl
-        //   https://www.147soft.cn:8092/images/yspcs0/bigDataPicture/tk1.jpg
-        // http://www.147soft.cn:8091/yspcs0/bigDataPicture/tk1.jpg
-        });
+    async getPriceList() {
+      // axios
+      //   .get(
+      //     "http://192.168.1.97:8092/managementSystem/changguan/getBigDataPics?type=3&pageNo=1&pageSize=10&shopNum=0001"
+      //   )
+      //   .then((response) => {
+      //     console.log(response, "hello");
+      //     this.imgUrl = 'https://www.147soft.cn:8092/images/' + response.data.data.list[0].imageUrl
+      //   //   https://www.147soft.cn:8092/images/yspcs0/bigDataPicture/tk1.jpg
+      //   // http://www.147soft.cn:8091/yspcs0/bigDataPicture/tk1.jpg
+      //   });
+      let res = await PortData.portImgData('1','1','0001','3')
+        console.log(res,'你好',PortData.portImgData('1','1','0001','3'))
+        this.imgUrl = 'https://www.147soft.cn:8092/images/' + res.list[0].imageUrl
+      
     },
   },
 };
