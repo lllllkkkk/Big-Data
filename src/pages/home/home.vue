@@ -3,7 +3,7 @@
     <div class="left">
       <div class="left-top">
         <div class="time-and-people">
-          <DateChoose></DateChoose>
+          <DateChoose @start-time='startTimeFun' @end-time='endTimeFun'></DateChoose>
           <LineCharts></LineCharts>
           <img class="img-light" src="../../assets/image/light.png" alt="" />
         </div>
@@ -57,30 +57,22 @@ export default {
     VenueLyoutCharts,
   },
   data() {
-    return {};
+    return {
+
+    };
   },
   mounted() {
-    console.log(process.env.NODE_ENV, "llll");
-    console.log(this.getOnIcePeople());
+    
   },
   methods: {
-    async getOnIcePeople() {
-      //   let obj = {
-      //     startDateTime: "2021-07-29 15:01:00",
-      //     endDateTime: "2021-07-29 15:01:00",
-      //     shopNum: "1001",
-      //   };
-            // axios
-            //   .get(
-            //     "http://192.168.1.97:8092/managementSystem/wks/getNumberOfPeople?startDateTime='2021-05-11 8:30:00'&endDateTime='2021-05-11 17:00:00'&shopNum='0001'"
-            //   )
-            //   .then((response) => {
-            //     // console.log(response, "ksdf");
-            //   });
+    //子组件传递切换开始时间
+    startTimeFun(val){
+      console.log(val,'开始时间')
     },
-    //     let res = await HomeDomain.getOnIcePeople(obj)
-    //     console.log(res,'skjdc')
-    // }
+    //子组件传递切换结束时间
+    endTimeFun(val){
+      console.log(val,'结束时间')
+    }
   },
 };
 </script>
