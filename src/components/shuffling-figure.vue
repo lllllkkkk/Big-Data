@@ -5,7 +5,8 @@
     </div>
 </template>
 
-<script>
+<script> 
+import PortData from '../assets/js/port-img-data.js'
 export default {
     data(){
         return {
@@ -13,10 +14,13 @@ export default {
         }
     },
     mounted(){
-
+        this.getShufflingImg()
     },
     methods:{
-
+        async getShufflingImg(){
+            let res = await PortData.portImgData('1','50','0001','1')
+            console.log(res,'轮播图')
+        }
     }
 }
 </script>
