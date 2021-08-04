@@ -113,9 +113,9 @@ export default {
 }
 .imgSty {
   width: 260px;
-  height: 16px;
+  height: 22px;
   position: absolute;
   left: 120px;
-  top: 8px;
+  top: 6px;
 }
 </style>

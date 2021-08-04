@@ -3,11 +3,32 @@
   <div class="lineCharts">
     <span class="textSty"> 上冰人数 </span>
     <img class="imgSty" src="../assets/image/arrow.png" alt="" />
+    <v-chart class="chart" :option="option" />
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import { use } from "echarts/core";
+import { CanvasRenderer } from "echarts/renderers";
+import { LineChart } from "echarts/charts";
+import {
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PolarComponent,
+   GridComponent
+} from "echarts/components";
+import VChart, { THEME_KEY } from "vue-echarts";
+use([
+  CanvasRenderer,
+  LineChart,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PolarComponent,
+   GridComponent
+]);
+
 export default {
   props: {
     chooseStartTime: {
@@ -19,29 +40,42 @@ export default {
       default: "",
     },
   },
+  components: {
+    VChart,
+  },
+  provide: {
+    [THEME_KEY]: "dark",
+  },
   data() {
     return {
       // time:0
+      option: {
+        xAxis: {
+          type: "category",
+          boundaryGap: false,
+          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            type: "line",
+            areaStyle: {},
+          },
+        ],
+      },
     };
   },
-  mounted() {
-    this.getOnIcePeople();
-  },
-  methods: {
-    async getOnIcePeople() {
-      if (this.chooseEndTime && this.chooseStartTime) {
-        let url = `http://192.168.1.97:8092/managementSystem/wks/getNumberOfPeople?startDateTime=${this.chooseStartTime}&endDateTime=${this.chooseEndTime}&shopNum=0001`;
-        let res = axios.get(url);
-        console.log(res);
-      }
-    },
-  },
+  mounted() {},
+  methods: {},
 };
 </script>
 
 <style scoped>
 .lineCharts {
-  margin-top: 30px;
+  margin-top: 20px;
   position: relative;
 }
 .textSty {
@@ -55,9 +89,15 @@ export default {
 }
 .imgSty {
   width: 260px;
-  height: 16px;
+  height: 22px;
   position: absolute;
   left: 120px;
-  top: 8px;
+  top: 6px;
+}
+.chart {
+  height: 200px;
+  width: 390px;
+  margin-left: 15px;
+  margin-top: 10px;
 }
 </style>

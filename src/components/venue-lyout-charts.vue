@@ -42,10 +42,10 @@ export default {
 }
 .lyoutImgSty {
   width: 260px;
-  height: 16px;
+  height: 22px;
   position: absolute;
   left: 125px;
-  top: 9px;
+  top: 6px;
 }
 .portImgSty{
   width: 430px;

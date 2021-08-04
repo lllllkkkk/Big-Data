@@ -37,7 +37,7 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 
 import DateChoose from "../../components/date-choose.vue";
 import BarCharts from "../../components/bar-chart.vue";
@@ -70,11 +70,20 @@ export default {
     startTimeFun(val){
       console.log(val,'开始时间')
       this.chooseStartTime = val
+      this.getOnIcePeople()
     },
     //子组件传递切换结束时间
     endTimeFun(val){
       console.log(val,'结束时间')
       this.chooseEndTime = val
+      this.getOnIcePeople()
+    },
+    async getOnIcePeople() {
+      if (this.chooseEndTime && this.chooseStartTime) {
+        let url = `http://192.168.1.97:8092/managementSystem/wks/getNumberOfPeople?startDateTime=${this.chooseStartTime}&endDateTime=${this.chooseEndTime}&shopNum=0001`;
+        let res = axios.get(url);
+        console.log(res);
+      }
     }
   },
 };
@@ -82,8 +91,8 @@ export default {
 
 <style scoped>
 .home {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   padding: 170px 20px 0 20px;
   background-image: url("../../assets/image/bg.jpg");
