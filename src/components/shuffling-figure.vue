@@ -10,7 +10,7 @@ import PortData from '../assets/js/port-img-data.js'
 export default {
     data(){
         return {
-
+            
         }
     },
     mounted(){

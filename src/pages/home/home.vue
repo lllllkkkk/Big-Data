@@ -4,7 +4,7 @@
       <div class="left-top">
         <div class="time-and-people">
           <DateChoose @start-time='startTimeFun' @end-time='endTimeFun'></DateChoose>
-          <LineCharts></LineCharts>
+          <LineCharts :chooseStartTime='chooseStartTime' :chooseEndTime='chooseEndTime'></LineCharts>
           <img class="img-light" src="../../assets/image/light.png" alt="" />
         </div>
         <div class="lyout-charts">
@@ -58,7 +58,8 @@ export default {
   },
   data() {
     return {
-
+      chooseStartTime:'',
+      chooseEndTime:''
     };
   },
   mounted() {
@@ -68,10 +69,12 @@ export default {
     //子组件传递切换开始时间
     startTimeFun(val){
       console.log(val,'开始时间')
+      this.chooseStartTime = val
     },
     //子组件传递切换结束时间
     endTimeFun(val){
       console.log(val,'结束时间')
+      this.chooseEndTime = val
     }
   },
 };

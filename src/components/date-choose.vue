@@ -10,6 +10,7 @@
         @change="onChangeStartTime"
         :picker-options="pickerOptions"
         placeholder="选择开始时间"
+        format="yyyy-MM-dd HH:mm:ss"
       ></el-date-picker>
     </div>
     <div class="end-time">
@@ -20,13 +21,14 @@
         @change="onChangeEndTime"
         :picker-options="pickerOptions"
         placeholder="选择结束时间"
+        format="yyyy-MM-dd HH:mm:ss"
       ></el-date-picker>
     </div>
   </div>
 </template>
 
 <script>
-// import moment from 'moment'
+import moment from 'moment'
 export default {
   data() {
     return {
@@ -43,15 +45,13 @@ export default {
   methods: {
     //选择开始日期
     onChangeStartTime(val) {
-      console.log(val, "修改开始时间");
-      this.startTime = val;
-      this.$emit("start-time", val);
+      this.startTime = moment(val).format('YYYY-MM-DD HH:mm:ss');
+      this.$emit("start-time", this.startTime);
     },
     //选择结束日期
     onChangeEndTime(val) {
-      console.log(val, "修改结束时间");
-      this.endTime = val;
-      this.$emit("end-time", val);
+      this.endTime = moment(val).format('YYYY-MM-DD HH:mm:ss');
+      this.$emit("end-time", this.endTime);
     },
     //禁用今日以前的时间
     dealDisabledDate(time) {
