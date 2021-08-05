@@ -21,7 +21,6 @@ export default {
     async getPriceList() {
       let res = await PortData.portImgData('1','1','0001','3')
         this.imgUrl = 'https://www.147soft.cn:8092/images/' + res.list[0].imageUrl
-      
     },
   },
 };

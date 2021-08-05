@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import apiUrl from "../api/index";
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { BarChart } from "echarts/charts";
@@ -49,28 +50,89 @@ export default {
     return {
       // time:0
       option: {
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            // Use axis to trigger tooltip
+            type: "shadow", // 'shadow' as default; can also be 'line' or 'shadow'
+          },
+        },
+        legend: {
+          data: ["使用", "未使用"],
+        },
+        grid: {
+          left: "3%",
+          right: "4%",
+          bottom: "3%",
+          containLabel: true,
+        },
         xAxis: {
           type: "category",
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          data: ["教练", "滑冰助手", "滑冰鞋"],
         },
         yAxis: {
           type: "value",
         },
         series: [
           {
-            data: [120, 200, 150, 80, 70, 110, 130],
+            name: "使用",
             type: "bar",
-            showBackground: true,
-            backgroundStyle: {
-              color: "rgba(180, 180, 180, 0.2)",
+            stack: "total",
+            label: {
+              show: true,
             },
+            emphasis: {
+              focus: "series",
+            },
+            data: [],
+          },
+          {
+            name: "未使用",
+            type: "bar",
+            stack: "total",
+            label: {
+              show: true,
+            },
+            emphasis: {
+              focus: "series",
+            },
+            data: [],
           },
         ],
       },
     };
   },
-  mounted() {},
-  methods: {},
+  async mounted() {
+    let res = await apiUrl.getShoesAndCoachInfo("0001");
+    this.option.series[0].data = [
+      res.coachNum,
+      res.zhuShouUseCount,
+      res.shoesUseCount,
+    ];
+    this.option.series[1].data = [
+      res.coachCount,
+      res.zhuShouNoUseCount,
+      res.shoesNoUseCount,
+    ];
+    this.getShoesAndCoachInfo();
+  },
+  methods: {
+    async getShoesAndCoachInfo() {
+      setInterval(async () => {
+        let res = await apiUrl.getShoesAndCoachInfo("0001");
+        this.option.series[0].data = [
+          res.coachNum,
+          res.zhuShouUseCount,
+          res.shoesUseCount,
+        ];
+        this.option.series[1].data = [
+          res.coachCount,
+          res.zhuShouNoUseCount,
+          res.shoesNoUseCount,
+        ];
+      }, 9000000);
+    },
+  },
 };
 </script>
 

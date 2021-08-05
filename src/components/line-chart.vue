@@ -1,50 +1,27 @@
 <template>
   <!-- <div id="main2" style="width: 400px; height: 300px;background:red"> {{time}} </div> -->
   <div class="lineCharts">
-    <span class="textSty"> 上冰人数 </span>
+    <!-- <span class="textSty"> 上冰人数 </span>
     <img class="imgSty" src="../assets/image/arrow.png" alt="" />
-    <v-chart class="chart" :option="option" />
+    <v-chart class="chart" :option="option" /> -->
   </div>
 </template>
 
 <script>
-import { use } from "echarts/core";
-import { CanvasRenderer } from "echarts/renderers";
-import { LineChart } from "echarts/charts";
-import {
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-  PolarComponent,
-   GridComponent
-} from "echarts/components";
-import VChart, { THEME_KEY } from "vue-echarts";
-use([
-  CanvasRenderer,
-  LineChart,
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-  PolarComponent,
-   GridComponent
-]);
+
 
 export default {
   props: {
-    chooseStartTime: {
-      type: String,
-      default: "",
-    },
-    chooseEndTime: {
-      type: String,
-      default: "",
+    dataList: {
+      type: Array,
+      default: () => [],
     },
   },
   components: {
     VChart,
   },
   provide: {
-    [THEME_KEY]: "dark",
+    [THEME_KEY]: "light",
   },
   data() {
     return {
@@ -68,13 +45,17 @@ export default {
       },
     };
   },
-  mounted() {},
-  methods: {},
+  mounted() {
+
+  },
+  methods: {
+
+  },
 };
 </script>
 
 <style scoped>
-.lineCharts {
+/* .lineCharts {
   margin-top: 20px;
   position: relative;
 }
@@ -99,5 +80,5 @@ export default {
   width: 390px;
   margin-left: 15px;
   margin-top: 10px;
-}
+} */
 </style>

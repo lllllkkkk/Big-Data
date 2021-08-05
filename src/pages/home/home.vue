@@ -3,8 +3,8 @@
     <div class="left">
       <div class="left-top">
         <div class="time-and-people">
-          <DateChoose @start-time='startTimeFun' @end-time='endTimeFun'></DateChoose>
-          <LineCharts :chooseStartTime='chooseStartTime' :chooseEndTime='chooseEndTime'></LineCharts>
+          <DateChoose ></DateChoose>
+          <!-- <LineCharts :dataList="dataList"></LineCharts> -->
           <img class="img-light" src="../../assets/image/light.png" alt="" />
         </div>
         <div class="lyout-charts">
@@ -37,11 +37,9 @@
 </template>
 
 <script>
-import axios from "axios";
-
 import DateChoose from "../../components/date-choose.vue";
 import BarCharts from "../../components/bar-chart.vue";
-import LineCharts from "../../components/line-chart.vue";
+// import LineCharts from "../../components/line-chart.vue";
 import PieCharts from "../../components/pie-chart.vue";
 import PriceList from "../../components/price-list.vue";
 import ShufflingFigure from "../../components/shuffling-figure.vue";
@@ -50,7 +48,7 @@ export default {
   components: {
     DateChoose,
     BarCharts,
-    LineCharts,
+    // LineCharts,
     PieCharts,
     PriceList,
     ShufflingFigure,
@@ -59,32 +57,15 @@ export default {
   data() {
     return {
       chooseStartTime:'',
-      chooseEndTime:''
+      chooseEndTime:'',
+      dataList:[]
     };
   },
   mounted() {
     
   },
   methods: {
-    //子组件传递切换开始时间
-    startTimeFun(val){
-      console.log(val,'开始时间')
-      this.chooseStartTime = val
-      this.getOnIcePeople()
-    },
-    //子组件传递切换结束时间
-    endTimeFun(val){
-      console.log(val,'结束时间')
-      this.chooseEndTime = val
-      this.getOnIcePeople()
-    },
-    async getOnIcePeople() {
-      if (this.chooseEndTime && this.chooseStartTime) {
-        let url = `http://192.168.1.97:8092/managementSystem/wks/getNumberOfPeople?startDateTime=${this.chooseStartTime}&endDateTime=${this.chooseEndTime}&shopNum=0001`;
-        let res = axios.get(url);
-        console.log(res);
-      }
-    }
+    
   },
 };
 </script>

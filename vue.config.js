@@ -4,5 +4,6 @@ module.exports = {
             warnings: false,
             errors: false
         }
-    }
+    },
+    publicPath:'./'
 }

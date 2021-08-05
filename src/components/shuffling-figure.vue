@@ -37,11 +37,7 @@ export default {
   },
   data() {
     return {
-      banners: [
-        "https://img.iplaysoft.com/wp-content/uploads/2019/free-images/free_stock_photo.jpg",
-        "http://static.runoob.com/images/demo/demo2.jpg",
-        "https://exp-picture.cdn.bcebos.com/2a1ecb460596b814e9fce0b043d246fe464e2283.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_500%2Climit_1%2Fquality%2Cq_80",
-      ],
+      banners: [],
       swiperOption: {
         // pagination: {
         //   el: ".swiper-pagination",
@@ -65,7 +61,6 @@ export default {
     },
   },
   mounted() {
-    // this.getShufflingImg();
     console.log(this, "都有啥");
     console.log("Current Swiper instance object", this.mySwiper);
     this.swiper.slideTo(1, 100, false);
@@ -74,6 +69,9 @@ export default {
     async getShufflingImg() {
       let res = await PortData.portImgData("1", "50", "0001", "1");
       console.log(res, "轮播图");
+      this.banners = res.list.map(item => {
+        return 'https://www.147soft.cn:8092/images/' + item.imageUrl
+      }) 
     },
   },
 };

@@ -24,14 +24,48 @@
         format="yyyy-MM-dd HH:mm:ss"
       ></el-date-picker>
     </div>
+    <div class="lineCharts">
+      <span class="textSty"> 上冰人数 </span>
+      <img class="imgSty" src="../assets/image/arrow.png" alt="" />
+      <v-chart class="chart" :option="option" />
+    </div>
   </div>
 </template>
 
 <script>
-import moment from 'moment'
+import moment from "moment";
+import apiUrl from "../api/index";
+import { use } from "echarts/core";
+import { CanvasRenderer } from "echarts/renderers";
+import { LineChart } from "echarts/charts";
+import {
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PolarComponent,
+  GridComponent,
+} from "echarts/components";
+import VChart, { THEME_KEY } from "vue-echarts";
+use([
+  CanvasRenderer,
+  LineChart,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PolarComponent,
+  GridComponent,
+]);
+
 export default {
+  components: {
+    VChart,
+  },
+  provide: {
+    [THEME_KEY]: "light",
+  },
   data() {
     return {
+      dataList:[],
       startTime: "",
       endTime: "",
       pickerOptions: {
@@ -39,25 +73,74 @@ export default {
           return this.dealDisabledDate(time);
         },
       },
+      option: {
+        xAxis: {
+          type: "category",
+          boundaryGap: false,
+          data: [],
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            data: [],
+            type: "line",
+            areaStyle: {},
+          },
+        ],
+      },
     };
   },
   mounted() {},
   methods: {
     //选择开始日期
     onChangeStartTime(val) {
-      this.startTime = moment(val).format('YYYY-MM-DD HH:mm:ss');
-      this.$emit("start-time", this.startTime);
+      this.startTime = moment(val).format("YYYY-MM-DD HH:mm:ss");
+
+      if (this.startTime && this.startTime !== "Invalid date") {
+        this.getOnIcePeople();
+      }
     },
     //选择结束日期
     onChangeEndTime(val) {
-      this.endTime = moment(val).format('YYYY-MM-DD HH:mm:ss');
-      this.$emit("end-time", this.endTime);
+      this.endTime = moment(val).format("YYYY-MM-DD HH:mm:ss");
+      console.log(this.endTime, "kkkkk");
+      if (this.endTime && this.endTime !== "Invalid date") {
+        this.getOnIcePeople();
+      }
     },
     //禁用今日以前的时间
     dealDisabledDate(time) {
       let strDate = new Date().toLocaleDateString();
       let times = new Date(strDate).getTime();
       return time.getTime() < times;
+    },
+    async getOnIcePeople() {
+      // if (this.endTime && this.startTime) {
+        let res = await apiUrl.getNumberOfPeople(
+          this.startTime,
+          this.endTime,
+          "0001"
+        );
+        console.log(res, "llll");
+        this.dataList = res;
+        this.option.xAxis.data = res.map(item => item.dateTime)
+        this.option.series[0].data = res.map(item => item.peopleNum)
+      // }
+      setInterval(async () => {
+        if (this.endTime && this.startTime) {
+        let res = await apiUrl.getNumberOfPeople(
+          this.startTime,
+          this.endTime,
+          "0001"
+        );
+        console.log(res, "llll");
+        this.dataList = res;
+        this.option.xAxis.data = res.map(item => item.dateTime)
+        this.option.series[0].data = res.map(item => item.peopleNum)
+      }
+      },900000)
     },
   },
 };
@@ -117,5 +200,31 @@ export default {
   position: absolute;
   left: 120px;
   top: 6px;
+}
+.lineCharts {
+  margin-top: 20px;
+  position: relative;
+}
+.textSty {
+  font-size: 24px;
+  font-family: BigruixianBlackGBV1.0 Regular;
+  letter-spacing: 5px;
+  background-image: linear-gradient(#74d1ff, #daeeff);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+.imgSty {
+  width: 260px;
+  height: 22px;
+  position: absolute;
+  left: 120px;
+  top: 6px;
+}
+.chart {
+  height: 200px;
+  width: 390px;
+  margin-left: 15px;
+  margin-top: 10px;
 }
 </style>
