@@ -105,7 +105,6 @@ export default {
     //选择结束日期
     onChangeEndTime(val) {
       this.endTime = moment(val).format("YYYY-MM-DD HH:mm:ss");
-      console.log(this.endTime, "kkkkk");
       if (this.endTime && this.endTime !== "Invalid date") {
         this.getOnIcePeople();
       }
@@ -121,9 +120,8 @@ export default {
         let res = await apiUrl.getNumberOfPeople(
           this.startTime,
           this.endTime,
-          "0001"
+          "1001"
         );
-        console.log(res, "llll");
         this.dataList = res;
         this.option.xAxis.data = res.map(item => item.dateTime)
         this.option.series[0].data = res.map(item => item.peopleNum)
@@ -133,9 +131,8 @@ export default {
         let res = await apiUrl.getNumberOfPeople(
           this.startTime,
           this.endTime,
-          "0001"
+          "1001"
         );
-        console.log(res, "llll");
         this.dataList = res;
         this.option.xAxis.data = res.map(item => item.dateTime)
         this.option.series[0].data = res.map(item => item.peopleNum)

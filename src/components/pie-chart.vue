@@ -74,7 +74,7 @@ export default {
     };
   },
   async mounted() {
-    let res = await api.getSumPeople("0001");
+    let res = await api.getSumPeople("1001");
     if(res.headCount!=0){
           this.option.series[0].data = [
           {
@@ -98,7 +98,7 @@ export default {
     async getSumPeople() {
       // setTimeout( this.getSumPeople(), 10000  );
       setInterval(async () => {
-        let res = await api.getSumPeople("0001");
+        let res = await api.getSumPeople("1001");
         if(res.headCount!=0){
           this.option.series[0].data = [
           {

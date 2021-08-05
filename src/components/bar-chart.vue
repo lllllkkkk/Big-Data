@@ -103,7 +103,7 @@ export default {
     };
   },
   async mounted() {
-    let res = await apiUrl.getShoesAndCoachInfo("0001");
+    let res = await apiUrl.getShoesAndCoachInfo("1001");
     this.option.series[0].data = [
       res.coachNum,
       res.zhuShouUseCount,
@@ -119,7 +119,7 @@ export default {
   methods: {
     async getShoesAndCoachInfo() {
       setInterval(async () => {
-        let res = await apiUrl.getShoesAndCoachInfo("0001");
+        let res = await apiUrl.getShoesAndCoachInfo("1001");
         this.option.series[0].data = [
           res.coachNum,
           res.zhuShouUseCount,

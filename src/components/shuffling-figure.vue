@@ -25,31 +25,30 @@
 
 <script>
 import PortData from "../assets/js/port-img-data.js";
-import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
+import { Swiper, SwiperSlide, directive  } from "vue-awesome-swiper";
 import "swiper/swiper-bundle.css";
 export default {
   components: {
     Swiper,
-    SwiperSlide,
+    SwiperSlide
   },
   directives: {
     swiper: directive,
   },
   data() {
     return {
-      banners: [],
+      banners: [
+        "https://img.iplaysoft.com/wp-content/uploads/2019/free-images/free_stock_photo.jpg",
+        "https://img95.699pic.com/photo/50046/5562.jpg_wh300.jpg",
+        "https://pic1.zhimg.com/v2-3be05963f5f3753a8cb75b6692154d4a_1440w.jpg?source=172ae18b"
+      ],
       swiperOption: {
         // pagination: {
         //   el: ".swiper-pagination",
         // },
         // speed: 500, //切换速度
         loop: true, //开启循环模式
-        autoplay: {
-          delay: 3000,
-          stopOnLastSlide: false,
-          disableOnInteraction: true,
-          waitForTransition: false,
-        },
+        autoplay: true,
         // observer: true, //修改swiper自己或子元素时，自动初始化swiper
         // observeParents: true, //修改swiper的父元素时，自动初始化swiper
       },
@@ -61,17 +60,14 @@ export default {
     },
   },
   mounted() {
-    console.log(this, "都有啥");
-    console.log("Current Swiper instance object", this.mySwiper);
     this.swiper.slideTo(1, 100, false);
   },
   methods: {
     async getShufflingImg() {
-      let res = await PortData.portImgData("1", "50", "0001", "1");
-      console.log(res, "轮播图");
-      this.banners = res.list.map(item => {
-        return 'https://www.147soft.cn:8092/images/' + item.imageUrl
-      }) 
+      let res = await PortData.portImgData("1", "50", "1001", "1");
+      this.banners = res.list.map((item) => {
+        return "https://www.147soft.cn:8092/images/" + item.imageUrl;
+      });
     },
   },
 };
@@ -102,7 +98,7 @@ export default {
   height: 790px;
   margin-top: 8px;
 }
-.swiper{
-    width: 440px;
+.swiper {
+  width: 440px;
 }
-</style>
+</style> 
