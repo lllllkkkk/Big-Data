@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     async getImgUrl(){
-      let res = await PortData.portImgData('1','1','0001','2')
+      let res = await PortData.portImgData('1','1','1001','2')
         this.imgUrl = 'https://www.147soft.cn:8092/images/' + res.list[0].imageUrl
       
     }

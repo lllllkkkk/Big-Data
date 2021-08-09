@@ -4,7 +4,6 @@
       <div class="left-top">
         <div class="time-and-people">
           <DateChoose ></DateChoose>
-          <!-- <LineCharts :dataList="dataList"></LineCharts> -->
           <img class="img-light" src="../../assets/image/light.png" alt="" />
         </div>
         <div class="lyout-charts">
@@ -72,8 +71,8 @@ export default {
 
 <style scoped>
 .home {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   padding: 170px 20px 0 20px;
   background-image: url("../../assets/image/bg.jpg");
@@ -91,7 +90,7 @@ export default {
 .lyout-charts {
   width: 455px;
   height: 420px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   padding: 10px 0 0 10px;
   border: solid 1px rgba(76, 178, 248, 0.4);
   box-shadow: 0px 0px 15px rgba(76, 178, 248, 0.5) inset;
@@ -99,7 +98,7 @@ export default {
   box-sizing: border-box;
   position: relative;
 }
-.time-and-people {
+/* .time-and-people {
   width: 450px;
   height: 420px;
   padding: 10px 0 0 10px;
@@ -107,7 +106,7 @@ export default {
   box-shadow: 0px 0px 15px rgba(76, 178, 248, 0.5) inset;
   position: relative;
   box-sizing: border-box;
-}
+} */
 .bar-and-pie {
   width: 925px;
   height: 420px;
@@ -148,7 +147,7 @@ export default {
 .time-and-people {
   position: relative;
 }
-.time-and-people::before {
+/* .time-and-people::before {
   content: "";
   width: 0;
   height: 22px;
@@ -168,7 +167,7 @@ export default {
   border: 9px solid #050b1b;
   border-bottom-color: transparent;
   border-left-color: transparent;
-}
+} */
 .img-light {
   position: absolute;
   top: -44px;

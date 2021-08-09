@@ -16,7 +16,7 @@
 import axios from 'axios'
 
 const urlConfig = {
-    dev:'http://192.168.1.97:8092/managementSystem',
+    dev:'http://192.168.1.77:8092/managementSystem',
     prod:'https://www.147soft.cn/managementSystem'
 }
 const apiUrl = process.env.NODE_ENV === 'production' ? urlConfig.prod : urlConfig.dev

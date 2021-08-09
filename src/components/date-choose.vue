@@ -26,7 +26,7 @@
     </div>
     <div class="lineCharts">
       <span class="textSty"> 上冰人数 </span>
-      <img class="imgSty" src="../assets/image/arrow.png" alt="" />
+      <img class="img-sty" src="../assets/image/arrow.png" alt="" />
       <v-chart class="chart" :option="option" />
     </div>
   </div>
@@ -148,6 +148,11 @@ export default {
   display: flex;
   flex-direction: column;
   position: relative;
+  background-image: url("../assets/image/111.png");
+  padding: 15px;
+  width: 450px;
+  height: 420px;
+  background-repeat: no-repeat;
 }
 .start-time {
   margin-top: 18px;
@@ -193,10 +198,17 @@ export default {
 }
 .imgSty {
   width: 260px;
-  height: 22px;
-  position: absolute;
-  left: 120px;
-  top: 6px;
+    height: 22px;
+    position: absolute;
+    left: 135px;
+    top: 21px;
+}
+.img-sty{
+  width: 260px;
+    height: 22px;
+    position: absolute;
+    left: 125px;
+    top: 5px;
 }
 .lineCharts {
   margin-top: 20px;
@@ -211,13 +223,13 @@ export default {
   color: transparent;
   font-weight: 700;
 }
-.imgSty {
+/* .imgSty {
   width: 260px;
   height: 22px;
   position: absolute;
   left: 120px;
   top: 6px;
-}
+} */
 .chart {
   height: 200px;
   width: 390px;

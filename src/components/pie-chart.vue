@@ -79,15 +79,15 @@ export default {
           this.option.series[0].data = [
           {
             value: res.bingQiuCount,
-            name: `冰球-${(res.bingQiuCount / res.headCount) * 100 + '%'}`,
+            name: `冰球-${(res.bingQiuCount / res.headCount).toFixed(4) * 100 + '%'}`,
           },
           {
             value: res.huaYangCount,
-            name: `花样-${(res.huaYangCount / res.headCount) * 100 + '%'}`,
+            name: `花样-${(res.huaYangCount / res.headCount).toFixed(4) * 100 + '%'}`,
           },
           {
             value: res.sanKeCount,
-            name: `散滑-${(res.sanKeCount / res.headCount) * 100 + '%'}`,
+            name: `散滑-${(res.sanKeCount / res.headCount).toFixed(4) * 100 + '%'}`,
           },
         ];
         }
@@ -103,15 +103,15 @@ export default {
           this.option.series[0].data = [
           {
             value: res.bingQiuCount,
-            name: `冰球-${(res.bingQiuCount / res.headCount) * 100 + '%'}`,
+            name: `冰球-${(res.bingQiuCount / res.headCount).toFixed(4) * 100 + '%'}`,
           },
           {
             value: res.huaYangCount,
-            name: `花样-${(res.huaYangCount / res.headCount) * 100 + '%'}`,
+            name: `花样-${((res.huaYangCount / res.headCount)).toFixed(4) * 100 + '%'}`,
           },
           {
             value: res.sanKeCount,
-            name: `散滑-${(res.sanKeCount / res.headCount) * 100 + '%'}`,
+            name: `散滑-${((res.sanKeCount / res.headCount)).toFixed(4) * 100 + '%'}`,
           },
         ];
         }

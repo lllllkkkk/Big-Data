@@ -38,9 +38,7 @@ export default {
   data() {
     return {
       banners: [
-        "https://img.iplaysoft.com/wp-content/uploads/2019/free-images/free_stock_photo.jpg",
-        "https://img95.699pic.com/photo/50046/5562.jpg_wh300.jpg",
-        "https://pic1.zhimg.com/v2-3be05963f5f3753a8cb75b6692154d4a_1440w.jpg?source=172ae18b"
+        
       ],
       swiperOption: {
         // pagination: {
