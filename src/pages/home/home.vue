@@ -3,7 +3,7 @@
     <div class="left">
       <div class="left-top">
         <div class="time-and-people">
-          <DateChoose ></DateChoose>
+          <DateChoose></DateChoose>
           <img class="img-light" src="../../assets/image/light.png" alt="" />
         </div>
         <div class="lyout-charts">
@@ -55,21 +55,17 @@ export default {
   },
   data() {
     return {
-      chooseStartTime:'',
-      chooseEndTime:'',
-      dataList:[]
+      chooseStartTime: "",
+      chooseEndTime: "",
+      dataList: [],
     };
   },
-  mounted() {
-    
-  },
-  methods: {
-    
-  },
+  mounted() {},
+  methods: {},
 };
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 .home {
   width: 100vw;
   height: 100vh;
@@ -78,10 +74,11 @@ export default {
   background-image: url("../../assets/image/bg.jpg");
   background-repeat: no-repeat;
   color: #fff;
+  .left {
+    width: 930px;
+  }
 }
-.left {
-  width: 930px;
-}
+
 .left-top {
   /* opacity: 0.4; */
 

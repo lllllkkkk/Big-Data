@@ -5,5 +5,12 @@ module.exports = {
             errors: false
         }
     },
-    publicPath:'./'
+    publicPath:'./',
+    css: {
+        loaderOptions: {
+            sass: {
+                additionalData: `@import "./src/assets/scss/style.scss";`,
+            },
+        },
+    }
 }
