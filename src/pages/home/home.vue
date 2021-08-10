@@ -38,7 +38,6 @@
 <script>
 import DateChoose from "../../components/date-choose.vue";
 import BarCharts from "../../components/bar-chart.vue";
-// import LineCharts from "../../components/line-chart.vue";
 import PieCharts from "../../components/pie-chart.vue";
 import PriceList from "../../components/price-list.vue";
 import ShufflingFigure from "../../components/shuffling-figure.vue";
@@ -47,7 +46,6 @@ export default {
   components: {
     DateChoose,
     BarCharts,
-    // LineCharts,
     PieCharts,
     PriceList,
     ShufflingFigure,
@@ -258,4 +256,16 @@ export default {
   border-bottom-color: transparent;
   border-left-color: transparent;
 }
+
+// .shuffling-figure::after {
+//   content: "";
+//   width: 0;
+//   height: 0;
+//   position: absolute;
+//   left: 436px;
+//   top: -2px;
+//   border: 9px solid #050b1b;
+//   border-bottom-color: transparent;
+//   border-left-color: transparent;
+// }
 </style>
